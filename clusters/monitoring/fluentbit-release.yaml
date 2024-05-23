@@ -138,3 +138,6 @@ spec:
 
           return 1, timestamp, new_record
         end
+
+rbac:
+  create: true
