@@ -15,6 +15,12 @@ spec:
 
     # processors:
     #   batch:
+    processors:
+      attributes:
+        actions:
+        - action: insert
+          key: loki.attribute.labels
+          value: namespace_name
 
     # exporters:
     #   logging:
