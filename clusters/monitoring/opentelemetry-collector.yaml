@@ -54,7 +54,7 @@ spec:
       pipelines:
         logs:
           receivers: [otlp]
-          exporters: [loki]
+          exporters: [logging,loki]
         traces:
           receivers: [otlp]
           exporters: [logging]
