@@ -32,7 +32,7 @@ spec:
       logging:
         loglevel: info
       loki:
-        endpoint: http://loki.monitoring.svc.cluster.local:3100/loki/api/v1/push
+        endpoint: http://loki-gateway.monitoring.svc.cluster.local:80/loki/api/v1/push
       prometheus:
         endpoint: "0.0.0.0:8889"
 
