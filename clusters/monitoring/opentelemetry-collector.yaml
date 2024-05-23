@@ -30,7 +30,7 @@ spec:
 
     exporters:
       logging:
-        loglevel: info
+        loglevel: debug
       loki:
         endpoint: http://loki-gateway.monitoring.svc.cluster.local:80/loki/api/v1/push
       prometheus:
