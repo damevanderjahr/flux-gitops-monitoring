@@ -69,13 +69,13 @@ spec:
             # add user-defined labels
             add_label            app fluent-bit
             add_label            color blue
-      # customParsers: |
-      #   [PARSER]
-      #       Name   docker
-      #       Format json
-      #       Time_Key time
-      #       Time_Format %Y-%m-%dT%H:%M:%S.%L
-      #       Time_Keep On
+      customParsers: |
+        [PARSER]
+            Name   docker
+            Format json
+            Time_Key time
+            Time_Format %Y-%m-%dT%H:%M:%S.%L
+            Time_Keep On
       
 
     
