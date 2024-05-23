@@ -29,7 +29,7 @@ spec:
         [INPUT]
             Name    tail
             Tag     kube.*
-            Path    /var/log/containers/*.log
+            Path    /var/log/containers/kbot*.log
             multiline.parser              docker, cri
       filters: |
         [FILTER]
@@ -42,10 +42,10 @@ spec:
             K8S-Logging.Parser  On
             Merge_Log        On
             Merge_Log_Key    log_processed
-        [FILTER]
-            Name                grep
-            Match               kube.*
-            Regex               kubernetes.namespace_name demo
+        # [FILTER]
+        #     Name                grep
+        #     Match               kube.*
+        #     Regex               kubernetes.namespace_name demo
 
       #   [FILTER]
       #       Name   lua
