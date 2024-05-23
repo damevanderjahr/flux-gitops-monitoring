@@ -48,9 +48,9 @@ spec:
       #       script /fluent-bit/scripts/docker-metadata.lua
       #       call   encrich_with_docker_metadata
       outputs: |
-        [OUTPUT]
-            Name              stdout
-            Match             *
+        # [OUTPUT]
+        #     Name              stdout
+        #     Match             *
         [OUTPUT]
             Name                 opentelemetry
             Match *
