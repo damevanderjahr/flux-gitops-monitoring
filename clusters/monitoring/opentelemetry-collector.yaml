@@ -33,8 +33,9 @@ spec:
         loglevel: info
       loki:
         endpoint: http://loki-gateway.monitoring.svc.cluster.local:80/loki/api/v1/push
-        labels:
-          app: "demo-kbot"
+        default_labels_enabled:
+          exporter: false
+          job: true
       prometheus:
         endpoint: "0.0.0.0:8889"
 
