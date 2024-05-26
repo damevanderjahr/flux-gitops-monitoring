@@ -14,7 +14,5 @@ spec:
         name: jetstack
         namespace: flux-system
   interval: 5m
-  # install:
-  #   createNamespace: true
   values:
     installCRDs: true

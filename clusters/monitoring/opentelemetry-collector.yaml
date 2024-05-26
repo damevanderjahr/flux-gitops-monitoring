@@ -13,51 +13,28 @@ spec:
           http:
             endpoint: "0.0.0.0:3030"
 
-    # processors:
-    #   batch:
     processors:
-      attributes:
-        actions:
-        - action: insert
-          key: loki.attribute.labels
-          value: namespace_name
-
-    # exporters:
-    #   logging:
-    #     logLevel: debug
-    #   otlp:
-    #     endpoint: "your-otlp-endpoint:4317"
+      batch:
+        timeout: 1s
 
     exporters:
       logging:
-        loglevel: debug
+        verbosity: detailed
       loki:
-        endpoint: http://loki.monitoring.svc.cluster.local:80/loki/api/v1/push
+        endpoint: http://loki.monitoring.svc.cluster.local:3100/loki/api/v1/push
       prometheus:
+      # local port open
         endpoint: "0.0.0.0:8889"
 
-    # service:
-    #   pipelines:
-    #     traces:
-    #       receivers: [otlp]
-    #       processors: [batch]
-    #       exporters: [logging, otlp]
-    #     metrics:
-    #       receivers: [otlp]
-    #       processors: [batch]
-    #       exporters: [logging, otlp]
-    #     logs:
-    #       receivers: [otlp]
-    #       processors: [batch]
-    #       exporters: [logging, otlp]
     service:
       pipelines:
         logs:
           receivers: [otlp]
-          exporters: [logging,loki]
+          processors: [batch]
+          exporters: [logging]
         traces:
           receivers: [otlp]
           exporters: [logging]
         metrics:
           receivers: [otlp]
-          exporters: [logging,prometheus]
+          exporters: [prometheus]
